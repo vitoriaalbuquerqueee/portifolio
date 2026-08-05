@@ -1,3 +1,4 @@
+
 # 👩‍💻 Portfólio Pessoal - Vitória Albuquerque
 
 > Projeto desenvolvido durante o Bootcamp Java Full Stack da **Generation Brasil** (Bloco 3 - Fundamentos Web).
@@ -40,26 +41,31 @@ A aplicação conta com uma navegação responsiva, estrutura semântica para ac
 1. **Clone o repositório:**
    ```bash
    git clone [https://github.com/vitoriaalbuquerqueee/portfolio.git](https://github.com/vitoriaalbuquerqueee/portfolio.git)
-Navegue até a pasta do projeto:
-Bash
+
+```
+
+2. **Navegue até a pasta do projeto:**
+```bash
 cd portfolio
-Abra o projeto:
-Abra a pasta no VS Code.
-Clique com o botão direito no arquivo index.html e selecione Open with Live Server.
-👩‍💻 Autora
-Desenvolvido por Vitória Albuquerque
-LinkedIn: vitória-albuquerque
-GitHub: @vitoriaalbuquerqueee
+
+```
+
+
+3. **Abra o projeto:**
+* Abra a pasta no **VS Code**.
+* Clique com o botão direito no arquivo `index.html` e selecione **Open with Live Server**.
+
+
 
 ---
 
-### Opção 2: Gerar o arquivo PDF a partir do Markdown no VS Code
+## 👩‍💻 Autora
 
-Para converter o arquivo `README.md` em **PDF**:
+Desenvolvido por **Vitória Albuquerque**
 
-1. No VS Code, vá na aba de extensões (`Ctrl + Shift + X` ou `Cmd + Shift + X` no Mac).
-2. Busque e instale a extensão **Markdown PDF** (por *yzane* ou *yyuu*).
-3. Abra o seu arquivo `README.md`.
-4. Clique com o botão direito em qualquer lugar do texto do arquivo e selecione:
-   **Markdown PDF: Export (pdf)**.
-5. O VS Code criará automaticamentedas. Caso tenha sugestões de melhorias, correções ou novas funcionalidades, sinta-se à vontade para abrir uma **issue** ou enviar um **pull request**.# portifolio
+* **LinkedIn**: [vitória-albuquerque](https://www.google.com/search?q=https://linkedin.com/in/vit%C3%B3ria-albuquerque)
+* **GitHub**: [@vitoriaalbuquerqueee](https://github.com/vitoriaalbuquerqueee)
+
+```
+
+```
