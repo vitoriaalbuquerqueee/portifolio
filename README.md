@@ -51,3 +51,61 @@ O projeto consome dados dinâmicos da **API do GitHub**, permitindo que informa�
 │   └── 📁icons/          # Ícones das linguagens e redes sociais
 │
 └── README.md
+Tecnologias Utilizadas
+HTML5: Estruturação semântica do conteúdo
+CSS3: Estilização, layout responsivo e animações
+JavaScript (ES6+): Interatividade, consumo de APIs e validações
+Swiper.js: Carrossel de projetos responsivo
+FormSubmit: Serviço de envio de e-mails via formulário HTML
+GitHub API: Fonte dinâmica de dados do perfil e repositórios
+Executando Localmente
+Para executar o projeto em ambiente local, siga os passos abaixo.
+
+Pré-requisitos
+Visual Studio Code (ou outro editor de sua preferência)
+Extensão Live Server instalada no VS Code
+Passos
+Clone o repositório:
+Bash
+git clone [https://github.com/vitoriaalbuquerqueee/portifolio.git](https://github.com/vitoriaalbuquerqueee/portifolio.git)
+Acesse a pasta do projeto:
+Bash
+cd portifolio
+Abra o projeto no Visual Studio Code:
+Bash
+code .
+Abra o arquivo index.html, clique com o botão direito e selecione "Open with Live Server".
+O site será aberto no navegador e todas as alterações poderão ser visualizadas em tempo real.
+
+Documentação Técnica
+Estrutura do HTML
+Estilização com CSS
+Script JS
+Diferenciais do Projeto
+Layout responsivo
+Paleta de cores harmônica
+Animações suaves (transições e efeitos de flutuação)
+Formulário funcional com envio automático via e-mail
+Estrutura de código limpa e semântica, seguindo boas práticas
+Deploy
+Este site está disponível publicamente através do GitHub Pages. Você pode acessar a versão online pelo link abaixo:
+
+🔗 https://vitoriaalbuquerqueee.github.io/portifolio
+
+Contribuições
+Contribuições são bem-vindas. Caso tenha sugestões de melhorias, correções ou novas funcionalidades, sinta-se à vontade para abrir uma issue ou enviar um pull request.
+
+
+---
+
+### Como atualizar no seu VS Code:
+
+1. Abra o arquivo `README.md` no seu VS Code.
+2. Selecione tudo (`Cmd + A`) e apague.
+3. Cole o código acima e salve o arquivo (`Cmd + S`).
+4. Rode os comandos no terminal para subir a correção:
+
+```bash
+git add README.md
+git commit -m "docs: corrige formatacao e links do README.md"
+git push
