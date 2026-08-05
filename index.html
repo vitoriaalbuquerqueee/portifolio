@@ -5,15 +5,163 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="author" content="Vitoria Albuquerque">
-
     <meta name="description" content="Portfólio Pessoal de Vitoria Albuquerque, desenvolvedora Java Full Stack focada em construir soluções web modernas e eficientes. Conheça meus projetos e entre em contato.">
+    <meta name="robots" content="index, follow">
 
-<meta name="robots"content="index, follow">
-
-<link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
     <title>Portfólio da Vitoria</title>
 </head>
 <body>
-    
+
+    <!-- Cabeçalho da página -->
+    <header>
+
+        <div class="menu-content">
+            <!-- Título do cabeçalho -->
+            <a href="index.html" id="titulo">Portfólio</a>
+
+            <!-- Menu de Navegação -->
+            <nav>
+                <ul class="menu-list">
+                    <li><a href="#hero">Início</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#projects">Projetos</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+
+    <!-- Seção principal da página -->
+    <main>
+
+        <!-- Seção Hero -->
+        <section id="hero" class="section-container hero-container">
+
+            <!-- Boas-vindas -->
+            <article>
+                <span>👋 Olá, eu sou a Vitoria Albuquerque</span>
+                <h1>Desenvolvedora Java Full Stack</h1>
+                <p>Especializada em criar soluções web modernas e eficientes com tecnologias como Java, Spring Boot, React e Node.js.</p>
+                <div>
+                    <a href="#contact">Entre em contato comigo</a>
+                    <a href="#about">Saiba mais</a>
+                </div>
+            </article>
+
+            <figure>
+                <img src="./assets/img/foto_dev_woman.svg" alt="Foto do autor do site" class="float-animation">
+            </figure>
+
+        </section>
+
+        <!-- Seção Sobre mim -->
+        <section id="about" class="section-container about-container">
+
+            <!-- Imagem da Seção Sobre mim -->
+            <figure class="about-image">
+                <img src="./assets/img/avatar_dev_woman.svg" alt="Foto Perfil do autor do site">
+            </figure>
+
+            <!-- Conteúdo da Seção Sobre mim -->
+            <article class="about-content">
+                <h2>Sobre mim</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Hic maxime quidem perferendis
+                    et eius similique autem consectetur quisquam.
+                    Ducimus ut molestias illo etascti animi pariatur
+                    voluptate eligendi fugit cupiditate nemo?
+                </p>
+                <p>
+                    Fusce ipsum, facilisis vitae libero lobortis.
+                    Vae orci ornare consequat. Praesent lacinia
+                    ultrices consectetur. Sed non ipsum felis.
+                    Adipiscing accumsan disputationi eu sit.
+                    Vide electram adipiscing et per.
+                </p>
+
+                <!-- Links (GitHub + Currículo) e Dados do GitHub -->
+                <div class="about-buttons-data">
+                    <!-- Links -->
+                    <div class="buttons-container">
+                        <a href="#" target="_blank" class="botao">GitHub</a>
+                        <a href="#" target="_blank" class="botao-outline">Currículo</a>
+                    </div>
+
+                    <!-- Dados - Repositório GitHub -->
+                    <div class="data-container">
+                        <div class="data-item">
+                            <span class="data-number">100</span>
+                            <span class="data-label">Seguidores</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-number">10</span>
+                            <span class="data-label">Repositórios</span>
+                        </div>
+                    </div>
+                </div>
+
+            </article>
+
+        </section>
+
+        <!-- Seção Meus Projetos -->
+        <section id="projects">
+            <h2>Meus Projetos</h2>
+
+            <!-- Swiper container -->
+            <div class="swiper project-swiper">
+                <div class="swiper-wrapper">
+
+                    <article class="swiper-slide project-card">
+                        <!-- Ícone da Tecnologia padrão do projeto -->
+                        <figure class="project-image">
+                            <img src="./assets/icons/languages/github.svg" alt="Ícone do GitHub">
+                        </figure>
+
+                        <!-- Conteúdo do Projeto -->
+                        <div class="project-content">
+                            <h3>Projeto GitHub</h3>
+                            <p>Projeto desenvolvido no GitHub</p>
+
+                            <!-- Tags do Projeto -->
+                            <div class="project-tags">
+                                <span class="tag">GitHub</span>
+                            </div>
+
+                            <!-- Links do Projeto -->
+                            <div class="project-buttons">
+                                <a href="#" target="_blank" class="botao botao-sm">GitHub</a>
+                                <a href="#" target="_blank" class="botao-outline botao-sm">Deploy</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- Botões de Navegação -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+
+                <!-- Paginação -->
+                <div class="swiper-pagination"></div>
+
+            </div>
+        </section>
+
+        <!-- Seção Contato -->
+        <section id="contact">
+
+        </section>
+
+    </main>
+
+    <!-- Rodapé da página -->
+    <footer>
+
+    </footer>
+
 </body>
 </html>
