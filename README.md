@@ -1,70 +1,70 @@
-# 🚀 Blog Pessoal API - Spring Boot
+# 🚀 API Blog Pessoal - Spring Boot
 
 [![Java](https://img.shields.io/badge/Java-17-orange.svg)](https://www.oracle.com/java/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-green.svg)](https://spring.io/projects/spring-boot)
 [![MySQL](https://img.shields.io/badge/MySQL-8.0-blue.svg)](https://www.mysql.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Licença: MIT](https://img.shields.io/badge/Licen%C3%A7a-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-RESTful API developed for a personal blogging platform as part of the **Generation Brasil** Full Stack Bootcamp curriculum. The system enables full CRUD operations for blog posts, categories (themes), and user authentication with secure REST architectural standards.
-
----
-
-## 📌 Table of Contents
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Architecture & Layers](#-architecture--layers)
-- [Database Entity-Relationship Diagram](#-database-entity-relationship-diagram)
-- [Getting Started](#-getting-started)
-- [API Endpoints Reference](#-api-endpoints-reference)
-- [Project Structure](#-project-structure)
-- [License](#-license)
+API RESTful desenvolvida para uma plataforma de blog pessoal como parte do currículo do Bootcamp Full Stack da **Generation Brasil**. O sistema permite operações completas de CRUD para postagens de blog, categorias (temas) e autenticação de usuários, seguindo padrões arquiteturais REST seguros.
 
 ---
 
-## ✨ Features
-
-- **User Management**: User registration, login, and profile tracking.
-- **Theme/Category Management**: CRUD operations to categorize blog posts.
-- **Post Management**: CRUD operations for blog content with relational connections to themes and users.
-- **Relational Integrity**: Foreign key constraints enforcing relational mapping between entities.
-- **Data Validation**: Request payload validation using Spring Boot Validation annotations.
+## 📌 Sumário
+- [Funcionalidades](#-funcionalidades)
+- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
+- [Arquitetura e Camadas](#-arquitetura-e-camadas)
+- [Diagrama de Entidade-Relacionamento (DER)](#-diagrama-de-entidade-relacionamento-der)
+- [Como Executar o Projeto](#-como-executar-o-projeto)
+- [Documentação dos Endpoints (API)](#-documentação-dos-endpoints-api)
+- [Estrutura do Projeto](#-estrutura-do-projeto)
+- [Licença](#-licença)
 
 ---
 
-## 🛠 Tech Stack
+## ✨ Funcionalidades
 
-- **Language**: Java 17
+- **Gerenciamento de Usuários**: Cadastro, login e consulta de perfil.
+- **Gerenciamento de Temas/Categorias**: Operações de CRUD para categorizar as postagens.
+- **Gerenciamento de Postagens**: Operações de CRUD para os conteúdos do blog com relacionamentos com temas e usuários.
+- **Integridade Referencial**: Chaves estrangeiras (FK) garantindo a consistência do banco de dados.
+- **Validação de Dados**: Validação das requisições via anotações do Spring Boot Validation.
+
+---
+
+## 🛠 Tecnologias Utilizadas
+
+- **Linguagem**: Java 17
 - **Framework**: Spring Boot 3.x
-- **Modules**:
-  - **Spring Web**: RESTful API endpoints construction.
-  - **Spring Data JPA**: Object-Relational Mapping (ORM) and data access layer.
-  - **Spring Validation**: Input data validation.
-- **Database**:
-  - **Development**: MySQL 8.0
-  - **Production**: PostgreSQL
-- **Build Tool**: Maven
+- **Módulos**:
+  - **Spring Web**: Construção de endpoints RESTful.
+  - **Spring Data JPA**: Mapeamento Objeto-Relacional (ORM) e camada de acesso aos dados.
+  - **Spring Validation**: Validação de dados de entrada.
+- **Banco de Dados**:
+  - **Desenvolvimento**: MySQL 8.0
+  - **Produção**: PostgreSQL
+- **Gerenciador de Dependências**: Maven
 
 ---
 
-## 🏗 Architecture & Layers
+## 🏗 Arquitetura e Camadas
 
-The application strictly follows a clean three-tier architecture:
+A aplicação segue rigorosamente a arquitetura limpa em três camadas:
 
-1. **Controller Layer (`@RestController`)**: Handles HTTP requests, routes, and response status mapping.
-2. **Service / Business Logic Layer (`@Service`)**: Contains core application rules and transaction handling.
-3. **Repository Layer (`@Repository`)**: Interacts directly with the database via `JpaRepository`.
+1. **Camada Controller (`@RestController`)**: Manipula as requisições HTTP, mapeia rotas e retorna os status de resposta.
+2. **Camada Service / Regra de Negócio (`@Service`)**: Contém as regras de negócio e gerenciamento de transações.
+3. **Camada Repository (`@Repository`)**: Interage diretamente com o banco de dados via `JpaRepository`.
 
 ```
-[ HTTP Client / Postman ]
+[ Cliente HTTP / Postman ]
         │
         ▼
    ┌──────────┐
-   │ Controller│  (Handles REST requests and returns ResponseEntity)
+   │ Controller│  (Processa requisições REST e retorna ResponseEntity)
    └────┬─────┘
         │
         ▼
    ┌──────────┐
-   │ Repository│  (Executes queries via Spring Data JPA)
+   │ Repository│  (Executa consultas via Spring Data JPA)
    └────┬─────┘
         │
         ▼
@@ -75,7 +75,7 @@ The application strictly follows a clean three-tier architecture:
 
 ---
 
-## 🗄 Database Entity-Relationship Diagram
+## 🗄 Diagrama de Entidade-Relacionamento (DER)
 
 ```mermaid
 erDiagram
@@ -107,57 +107,57 @@ erDiagram
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Como Executar o Projeto
 
-### Prerequisites
+### Pré-requisitos
 
-- **JDK 17** or higher
+- **JDK 17** ou superior
 - **Maven 3.8+**
-- **MySQL Server 8.0+** running locally
+- **Servidor MySQL 8.0+** em execução local
 
-### Local Setup & Execution
+### Configuração e Execução Local
 
-1. **Clone the repository:**
+1. **Clone o repositório:**
    ```bash
-   git clone https://github.com/your-username/blog-pessoal-spring.git
+   git clone https://github.com/seu-usuario/blog-pessoal-spring.git
    cd blog-pessoal-spring
    ```
 
-2. **Configure Database Connection:**
-   Update your `src/main/resources/application.properties` file:
+2. **Configure a Conexão com o Banco de Dados:**
+   Atualize o arquivo `src/main/resources/application.properties`:
    ```properties
    spring.datasource.url=jdbc:mysql://localhost:3306/db_blogpessoal?createDatabaseIfNotExist=true&serverTimezone=UTC
    spring.datasource.username=root
-   spring.datasource.password=your_password
+   spring.datasource.password=sua_senha
    spring.jpa.hibernate.ddl-auto=update
    spring.jpa.show-sql=true
    ```
 
-3. **Build and Run the Application:**
+3. **Compile e Execute a Aplicação:**
    ```bash
    mvn clean install
    mvn spring-boot:run
    ```
 
-4. **Verify Application Health:**
-   The server will start on port `8080`. Access `http://localhost:8080/postagens` to verify endpoints.
+4. **Verifique o Status da Aplicação:**
+   O servidor iniciará na porta `8080`. Acesse `http://localhost:8080/postagens` para validar os endpoints.
 
 ---
 
-## 📑 API Endpoints Reference
+## 📑 Documentação dos Endpoints (API)
 
-### 📝 Posts (`/postagens`)
+### 📝 Postagens (`/postagens`)
 
-| Method | Endpoint | Description | Request Body |
+| Método | Endpoint | Descrição | Corpo da Requisição |
 | :--- | :--- | :--- | :--- |
-| `GET` | `/postagens` | List all posts | None |
-| `GET` | `/postagens/{id}` | Get post by ID | None |
-| `GET` | `/postagens/titulo/{titulo}` | Search posts by title | None |
-| `POST` | `/postagens` | Create a new post | JSON Payload |
-| `PUT` | `/postagens` | Update an existing post | JSON Payload |
-| `DELETE` | `/postagens/{id}` | Delete post by ID | None |
+| `GET` | `/postagens` | Listar todas as postagens | Nenhum |
+| `GET` | `/postagens/{id}` | Buscar postagem por ID | Nenhum |
+| `GET` | `/postagens/titulo/{titulo}` | Buscar postagens por título | Nenhum |
+| `POST` | `/postagens` | Criar uma nova postagem | Payload JSON |
+| `PUT` | `/postagens` | Atualizar uma postagem existente | Payload JSON |
+| `DELETE` | `/postagens/{id}` | Deletar postagem por ID | Nenhum |
 
-#### Sample Request Body (POST / PUT)
+#### Exemplo de Corpo de Requisição (POST / PUT)
 ```json
 {
   "titulo": "Primeiros Passos com Spring Boot",
@@ -170,18 +170,18 @@ erDiagram
 
 ---
 
-### 🏷️ Themes / Categories (`/temas`)
+### 🏷️ Temas / Categorias (`/temas`)
 
-| Method | Endpoint | Description | Request Body |
+| Método | Endpoint | Descrição | Corpo da Requisição |
 | :--- | :--- | :--- | :--- |
-| `GET` | `/temas` | List all themes | None |
-| `GET` | `/temas/{id}` | Get theme by ID | None |
-| `GET` | `/temas/descricao/{descricao}` | Search themes by description | None |
-| `POST` | `/temas` | Create a new theme | JSON Payload |
-| `PUT` | `/temas` | Update an existing theme | JSON Payload |
-| `DELETE` | `/temas/{id}` | Delete theme by ID | None |
+| `GET` | `/temas` | Listar todos os temas | Nenhum |
+| `GET` | `/temas/{id}` | Buscar tema por ID | Nenhum |
+| `GET` | `/temas/descricao/{descricao}` | Buscar temas por descrição | Nenhum |
+| `POST` | `/temas` | Criar um novo tema | Payload JSON |
+| `PUT` | `/temas` | Atualizar um tema existente | Payload JSON |
+| `DELETE` | `/temas/{id}` | Deletar tema por ID | Nenhum |
 
-#### Sample Request Body (POST / PUT)
+#### Exemplo de Corpo de Requisição (POST / PUT)
 ```json
 {
   "descricao": "Tecnologia e Desenvolvimento"
@@ -190,7 +190,7 @@ erDiagram
 
 ---
 
-## 📂 Project Structure
+## 📂 Estrutura do Projeto
 
 ```text
 src/main/java/com/generation/blogpessoal/
@@ -208,6 +208,6 @@ src/main/java/com/generation/blogpessoal/
 
 ---
 
-## 📄 License
+## 📄 Licença
 
-This project is open-source and available under the [MIT License](LICENSE).
+Este projeto é de código aberto e está disponível sob a licença [MIT](LICENSE).
