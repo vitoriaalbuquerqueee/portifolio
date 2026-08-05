@@ -1,111 +1,213 @@
-# Projeto Portfólio Pessoal
+# 🚀 Blog Pessoal API - Spring Boot
+
+[![Java](https://img.shields.io/badge/Java-17-orange.svg)](https://www.oracle.com/java/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-green.svg)](https://spring.io/projects/spring-boot)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0-blue.svg)](https://www.mysql.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+RESTful API developed for a personal blogging platform as part of the **Generation Brasil** Full Stack Bootcamp curriculum. The system enables full CRUD operations for blog posts, categories (themes), and user authentication with secure REST architectural standards.
 
 ---
 
-<div align="center">
-  <img src="https://img.shields.io/badge/HTML-5-orange?style=for-the-badge&logo=html5" alt="HTML Badge" />
-  <img src="https://img.shields.io/badge/CSS-3-purple?style=for-the-badge&logo=css&logoColor=purple" alt="CSS Badge" />
-  <img src="https://img.shields.io/badge/JavaScript-ES6+-yellow?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript Badge" />
-</div>
-
-<br />
-
-O **Projeto Portfólio Pessoal** é um **site profissional moderno**, desenvolvido com **HTML, CSS e JavaScript**, com o objetivo de apresentar informações sobre a pessoa desenvolvedora, seus projetos e formas de contato de maneira clara, interativa e responsiva.
-
-O projeto consome dados dinâmicos da **API do GitHub**, permitindo que informações como perfil e repositórios sejam carregadas automaticamente, mantendo o conteúdo sempre atualizado.
+## 📌 Table of Contents
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Architecture & Layers](#-architecture--layers)
+- [Database Entity-Relationship Diagram](#-database-entity-relationship-diagram)
+- [Getting Started](#-getting-started)
+- [API Endpoints Reference](#-api-endpoints-reference)
+- [Project Structure](#-project-structure)
+- [License](#-license)
 
 ---
 
-## Funcionalidades
+## ✨ Features
 
-- Estrutura de páginas desenvolvida com **HTML semântico**
-- Estilização moderna com **CSS**, utilizando:
-  - Variáveis CSS
-  - Animações
-  - Layout responsivo (desktop, tablet e mobile)
-- Integração com a **API do GitHub** para:
-  - Exibição dinâmica das informações do perfil
-  - Listagem automática dos repositórios
-- Exibição dos projetos em **carrossel interativo** utilizando **Swiper.js**
-- **Formulário de contato com validação no frontend**, garantindo o correto preenchimento dos campos
-- Página dedicada de **confirmação de envio** do formulário
-- Navegação fluida com menu fixo e rolagem suave
-- Interface intuitiva e organizada, focada na experiência do usuário
+- **User Management**: User registration, login, and profile tracking.
+- **Theme/Category Management**: CRUD operations to categorize blog posts.
+- **Post Management**: CRUD operations for blog content with relational connections to themes and users.
+- **Relational Integrity**: Foreign key constraints enforcing relational mapping between entities.
+- **Data Validation**: Request payload validation using Spring Boot Validation annotations.
 
 ---
 
-## Estrutura do Projeto
+## 🛠 Tech Stack
+
+- **Language**: Java 17
+- **Framework**: Spring Boot 3.x
+- **Modules**:
+  - **Spring Web**: RESTful API endpoints construction.
+  - **Spring Data JPA**: Object-Relational Mapping (ORM) and data access layer.
+  - **Spring Validation**: Input data validation.
+- **Database**:
+  - **Development**: MySQL 8.0
+  - **Production**: PostgreSQL
+- **Build Tool**: Maven
+
+---
+
+## 🏗 Architecture & Layers
+
+The application strictly follows a clean three-tier architecture:
+
+1. **Controller Layer (`@RestController`)**: Handles HTTP requests, routes, and response status mapping.
+2. **Service / Business Logic Layer (`@Service`)**: Contains core application rules and transaction handling.
+3. **Repository Layer (`@Repository`)**: Interacts directly with the database via `JpaRepository`.
+
+```
+[ HTTP Client / Postman ]
+        │
+        ▼
+   ┌──────────┐
+   │ Controller│  (Handles REST requests and returns ResponseEntity)
+   └────┬─────┘
+        │
+        ▼
+   ┌──────────┐
+   │ Repository│  (Executes queries via Spring Data JPA)
+   └────┬─────┘
+        │
+        ▼
+   ┌──────────┐
+   │ Database │  (MySQL / PostgreSQL)
+   └──────────┘
+```
+
+---
+
+## 🗄 Database Entity-Relationship Diagram
+
+```mermaid
+erDiagram
+    tb_temas ||--o{ tb_postagens : "possui"
+    tb_usuarios ||--o{ tb_postagens : "escreve"
+
+    tb_temas {
+        bigint id PK
+        varchar_255 descricao
+    }
+
+    tb_postagens {
+        bigint id PK
+        varchar_1000 texto
+        varchar_100 titulo
+        datetime data
+        bigint tema_id FK
+        bigint usuario_id FK
+    }
+
+    tb_usuarios {
+        bigint id PK
+        varchar_255 nome
+        varchar_255 usuario
+        varchar_255 senha
+        varchar_255 foto
+    }
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **JDK 17** or higher
+- **Maven 3.8+**
+- **MySQL Server 8.0+** running locally
+
+### Local Setup & Execution
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-username/blog-pessoal-spring.git
+   cd blog-pessoal-spring
+   ```
+
+2. **Configure Database Connection:**
+   Update your `src/main/resources/application.properties` file:
+   ```properties
+   spring.datasource.url=jdbc:mysql://localhost:3306/db_blogpessoal?createDatabaseIfNotExist=true&serverTimezone=UTC
+   spring.datasource.username=root
+   spring.datasource.password=your_password
+   spring.jpa.hibernate.ddl-auto=update
+   spring.jpa.show-sql=true
+   ```
+
+3. **Build and Run the Application:**
+   ```bash
+   mvn clean install
+   mvn spring-boot:run
+   ```
+
+4. **Verify Application Health:**
+   The server will start on port `8080`. Access `http://localhost:8080/postagens` to verify endpoints.
+
+---
+
+## 📑 API Endpoints Reference
+
+### 📝 Posts (`/postagens`)
+
+| Method | Endpoint | Description | Request Body |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/postagens` | List all posts | None |
+| `GET` | `/postagens/{id}` | Get post by ID | None |
+| `GET` | `/postagens/titulo/{titulo}` | Search posts by title | None |
+| `POST` | `/postagens` | Create a new post | JSON Payload |
+| `PUT` | `/postagens` | Update an existing post | JSON Payload |
+| `DELETE` | `/postagens/{id}` | Delete post by ID | None |
+
+#### Sample Request Body (POST / PUT)
+```json
+{
+  "titulo": "Primeiros Passos com Spring Boot",
+  "texto": "Conteúdo explicativo sobre a construção de APIs RESTful...",
+  "tema": {
+    "id": 1
+  }
+}
+```
+
+---
+
+### 🏷️ Themes / Categories (`/temas`)
+
+| Method | Endpoint | Description | Request Body |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/temas` | List all themes | None |
+| `GET` | `/temas/{id}` | Get theme by ID | None |
+| `GET` | `/temas/descricao/{descricao}` | Search themes by description | None |
+| `POST` | `/temas` | Create a new theme | JSON Payload |
+| `PUT` | `/temas` | Update an existing theme | JSON Payload |
+| `DELETE` | `/temas/{id}` | Delete theme by ID | None |
+
+#### Sample Request Body (POST / PUT)
+```json
+{
+  "descricao": "Tecnologia e Desenvolvimento"
+}
+```
+
+---
+
+## 📂 Project Structure
 
 ```text
-📁portfolio/
-│
-├── index.html        # Página principal do portfólio
-├── success.html      # Página de confirmação de envio do formulário
-│
-├── 📁assets/
-│   ├── 📁css/
-│   │   └── styles.css    # Estilos e responsividade
-│   ├── 📁js/
-│   │   └── scripts.js    # Integração com GitHub, carrossel e validações
-│   ├── 📁img/            # Imagens e ilustrações
-│   └── 📁icons/          # Ícones das linguagens e redes sociais
-│
-└── README.md
-Tecnologias Utilizadas
-HTML5: Estruturação semântica do conteúdo
-CSS3: Estilização, layout responsivo e animações
-JavaScript (ES6+): Interatividade, consumo de APIs e validações
-Swiper.js: Carrossel de projetos responsivo
-FormSubmit: Serviço de envio de e-mails via formulário HTML
-GitHub API: Fonte dinâmica de dados do perfil e repositórios
-Executando Localmente
-Para executar o projeto em ambiente local, siga os passos abaixo.
-
-Pré-requisitos
-Visual Studio Code (ou outro editor de sua preferência)
-Extensão Live Server instalada no VS Code
-Passos
-Clone o repositório:
-Bash
-git clone [https://github.com/vitoriaalbuquerqueee/portifolio.git](https://github.com/vitoriaalbuquerqueee/portifolio.git)
-Acesse a pasta do projeto:
-Bash
-cd portifolio
-Abra o projeto no Visual Studio Code:
-Bash
-code .
-Abra o arquivo index.html, clique com o botão direito e selecione "Open with Live Server".
-O site será aberto no navegador e todas as alterações poderão ser visualizadas em tempo real.
-
-Documentação Técnica
-Estrutura do HTML
-Estilização com CSS
-Script JS
-Diferenciais do Projeto
-Layout responsivo
-Paleta de cores harmônica
-Animações suaves (transições e efeitos de flutuação)
-Formulário funcional com envio automático via e-mail
-Estrutura de código limpa e semântica, seguindo boas práticas
-Deploy
-Este site está disponível publicamente através do GitHub Pages. Você pode acessar a versão online pelo link abaixo:
-
-🔗 https://vitoriaalbuquerqueee.github.io/portifolio
-
-Contribuições
-Contribuições são bem-vindas. Caso tenha sugestões de melhorias, correções ou novas funcionalidades, sinta-se à vontade para abrir uma issue ou enviar um pull request.
-
+src/main/java/com/generation/blogpessoal/
+├── controller/
+│   ├── PostagemController.java
+│   └── TemaController.java
+├── model/
+│   ├── Postagem.java
+│   └── Tema.java
+├── repository/
+│   ├── PostagemRepository.java
+│   └── TemaRepository.java
+└── BlogPessoalApplication.java
+```
 
 ---
 
-### Como atualizar no seu VS Code:
+## 📄 License
 
-1. Abra o arquivo `README.md` no seu VS Code.
-2. Selecione tudo (`Cmd + A`) e apague.
-3. Cole o código acima e salve o arquivo (`Cmd + S`).
-4. Rode os comandos no terminal para subir a correção:
-
-```bash
-git add README.md
-git commit -m "docs: corrige formatacao e links do README.md"
-git push
+This project is open-source and available under the [MIT License](LICENSE).
