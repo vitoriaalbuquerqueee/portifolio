@@ -11,19 +11,19 @@ const about = document.querySelector("#about")
 
 async function getAboutGithub() {
     try {
-        const resposta = await fetch('https://api.github.com/users/vitoriaalbuquerqueee')
-        const perfil = await resposta.json()
-
+        const resposta = await fetch('https://api.github.com/users/vitoriaalbuquerqueee');
+        const perfil = await resposta.json();
 
         about.innerHTML = `
-           <figure class="about-image">
+            <!-- Foto de Perfil -->
+            <figure class="about-image">
                 <img
                     src="./assets/img/perfil.jpeg"
-                    width="300"
-                    alt="Foto de Vitoria Albuquerque">
+                    alt="Foto de perfil de Vitoria Albuquerque"
+                >
             </figure>
 
-            <!-- Conteúdo -->
+            <!-- Conteúdo --> 
             <article class="about-content">
                 <h2>Sobre mim</h2>
 
@@ -90,6 +90,8 @@ async function getAboutGithub() {
         console.error("Erro ao buscar dados do GitHub", error)
     }
 }
+
+
 
 // Selecionar o container do Swiper
 const swiperWrapper = document.querySelector(".swiper-wrapper")
@@ -250,89 +252,89 @@ function iniciarSwiper() {
 
 formulario.addEventListener('submit', function (event) {
 
- 	event.preventDefault()
+    event.preventDefault()
  
-	document
+    document
 
- 		.querySelectorAll('form span')
+        .querySelectorAll('form span')
 
- 		.forEach((span) => (span.innerHTML = ''))
+        .forEach((span) => (span.innerHTML = ''))
  
-	let isValid = true
+    let isValid = true
  
-	const nome = document.querySelector('#nome')
+    const nome = document.querySelector('#nome')
 
- 	const erroNome = document.querySelector('#erro-nome')
+    const erroNome = document.querySelector('#erro-nome')
  
-	if (nome.value.trim().length < 3) {
+    if (nome.value.trim().length < 3) {
 
- 		erroNome.innerHTML = 'O nome deve ter no mínimo 3 caracteres'
+        erroNome.innerHTML = 'O nome deve ter no mínimo 3 caracteres'
 
- 		if (isValid) nome.focus()
+        if (isValid) nome.focus()
 
- 		isValid = false
+        isValid = false
 
- 	}
+    }
  
-	const email = document.querySelector('#email')
+    const email = document.querySelector('#email')
 
- 	const erroEmail = document.querySelector('#erro-email')
+    const erroEmail = document.querySelector('#erro-email')
  
-	if (!email.value.trim().match(emailRegex)) {
+    if (!email.value.trim().match(emailRegex)) {
 
- 		erroEmail.innerHTML = 'Digite um endereço de e-mail válido'
+        erroEmail.innerHTML = 'Digite um endereço de e-mail válido'
 
- 		if (isValid) email.focus()
+        if (isValid) email.focus()
 
- 		isValid = false
+        isValid = false
 
- 	}
+    }
  
-	const assunto = document.querySelector('#assunto')
+    const assunto = document.querySelector('#assunto')
 
- 	const erroAssunto = document.querySelector('#erro-assunto')
+    const erroAssunto = document.querySelector('#erro-assunto')
  
-	if (assunto.value.trim().length < 5) {
+    if (assunto.value.trim().length < 5) {
 
- 		erroAssunto.innerHTML =
+        erroAssunto.innerHTML =
 
- 			'O assunto deve ter no mínimo 5 caracteres'
+            'O assunto deve ter no mínimo 5 caracteres'
 
- 		if (isValid) assunto.focus()
+        if (isValid) assunto.focus()
 
- 		isValid = false
+        isValid = false
 
- 	}
+    }
  
-	const mensagem = document.querySelector('#mensagem')
+    const mensagem = document.querySelector('#mensagem')
 
- 	const erroMensagem = document.querySelector('#erro-mensagem')
+    const erroMensagem = document.querySelector('#erro-mensagem')
  
-	if (mensagem.value.trim().length === 0) {
+    if (mensagem.value.trim().length === 0) {
 
- 		erroMensagem.innerHTML = 'A mensagem não pode ser vazia'
+        erroMensagem.innerHTML = 'A mensagem não pode ser vazia'
 
- 		if (isValid) mensagem.focus()
+        if (isValid) mensagem.focus()
 
- 		isValid = false
+        isValid = false
 
- 	}
+    }
  
-	if (isValid) {
+    if (isValid) {
 
- 		const submitButton = formulario.querySelector(
+        const submitButton = formulario.querySelector(
 
- 			'button[type="submit"]',
+            'button[type="submit"]',
 
- 		)
+        )
 
- 		submitButton.disabled = true
+        submitButton.disabled = true
 
- 		submitButton.textContent = 'Enviando...'
+        submitButton.textContent = 'Enviando...'
  
-		formulario.submit()
+        formulario.submit()
 
- 	}
+    }
 
  })
 
